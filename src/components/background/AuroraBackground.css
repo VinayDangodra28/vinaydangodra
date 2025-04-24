@@ -1,0 +1,105 @@
+.aurora-background {
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+  }
+  
+  .aurora {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    top: -0%;
+    left: -50%;
+    background: radial-gradient(
+      circle,
+      rgba(112, 183, 120, 0.2) 0%,
+      rgba(41, 74, 50, 0.02) 60%
+    );
+    animation: aurora-animation 10s ease-in-out infinite alternate;
+    filter: blur(70px);
+    opacity: 1;
+  }
+  
+  .aurora:nth-child(2) {
+    animation-duration: 12s;
+    animation-delay: -3s;
+    transform: rotate(30deg);
+  }
+  
+  .aurora:nth-child(3) {
+    animation-duration: 14s;
+    animation-delay: -5s;
+    transform: rotate(-30deg);
+  }
+  
+  .aurora:nth-child(4) {
+    width: 200%;
+    height: 100%;
+    top: 50%;
+    right: -50%;
+    background: radial-gradient(
+      circle,
+      rgba(228, 104, 104, 0.2) 0%,
+      rgba(75, 56, 56, 0.02) 60%
+    );
+    animation: aurora-animation 15s ease-in-out infinite alternate;
+  }
+  
+  @keyframes aurora-animation {
+    0% {
+      transform: translate(-30%, -30%) rotate(0deg);
+    }
+    25% {
+      transform: translate(0%, -40%) rotate(30deg);
+    }
+    50% {
+      transform: translate(20%, -20%) rotate(0deg);
+    }
+    75% {
+      transform: translate(-10%, -30%) rotate(-30deg);
+    }
+    100% {
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+  }
+
+  .stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+  }
+  
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out;
+  }
+  
+  /* Twinkling animation */
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 0.3;
+      scale: 0.5
+    }
+    50% {
+      opacity: 1;
+      scale: 1.5;
+    }
+  }
+  
+
+  .fixed-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  

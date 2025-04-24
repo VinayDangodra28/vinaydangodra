@@ -1,0 +1,61 @@
+
+  .cursor, .follower, .cursor-ring {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    z-index: 9999999999999;
+  }
+  .cursor {
+    width: 6px;
+    height: 6px;
+    background: #242424;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .follower {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #242424;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .cursor-ring {
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgba(36, 36, 36, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .attract {
+    transition: transform 0.3s ease-out;
+  }
+    .cursor, .follower, .cursor-ring {
+position: fixed;
+transform: translate(-50%, -50%);
+z-index: 9999999999999;
+mix-blend-mode: difference; /* Makes the cursor contrast with the background */
+}
+
+.cursor {
+width: 6px;
+height: 6px;
+background: #fff; /* White cursor */
+border-radius: 50%;
+pointer-events: none;
+}
+
+.follower {
+width: 30px;
+height: 30px;
+border: 2px solid #fff; /* White border */
+background-color: #fff;
+border-radius: 50%;
+pointer-events: none;
+}
+
+.cursor-ring {
+width: 50px;
+height: 50px;
+border: 2px solid rgba(255, 255, 255, 0.5); /* White semi-transparent ring */
+border-radius: 50%;
+pointer-events: none;
+}

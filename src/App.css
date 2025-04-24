@@ -1,0 +1,14 @@
+/* @font-face{
+    font-family: 'neuropool';
+    src: url('/src/fonts/neuropool.regular.otf') format('opentype')
+} */
+
+@font-face {
+    font-family: 'neuropool';
+    src: url('/src/fonts/neuropol.regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  a {
+    color: inherit;
+}

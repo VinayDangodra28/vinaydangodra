@@ -1,0 +1,22 @@
+.background {
+    height: 100%;
+    width: 88.5vw;
+    position: fixed;
+    background: linear-gradient(0deg, #050919, #2f104d, #122D3D, #121B3B);
+    
+    animation: gradient 25s ease infinite;
+    
+	background-size: 200% 200%;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 100% 100%;
+	}
+	50% {
+		background-position: 0% 100%;
+	}
+	100% {
+		background-position: 100% 100%;
+	}
+}
