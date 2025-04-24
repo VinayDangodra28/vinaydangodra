@@ -9,8 +9,8 @@ import { Work } from './Work';
 import { Contact } from './Contact';
 import MazeGame from '../../components/MazeGame/MazeGame';
 import Popup from '../../components/Popup';
-import { Homebackground } from '../../components/homebackground/homebackground';
-import ScrollAnimation from '../../ScrollAnimation/ScrollAnimation';
+// import { Homebackground } from '../../components/homebackground/homebackground';
+// import ScrollAnimation from '../../ScrollAnimation/ScrollAnimation';
 
 
 function Home() {
