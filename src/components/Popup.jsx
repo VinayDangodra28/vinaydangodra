@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./Popup.css";
 
 const Popup = ({ selectedWork, onClose }) => {
+  if (!selectedWork) return null;
+  useEffect(() => {
+    if (selectedWork) {
+      localStorage.setItem("cursorAttraction", "stop");
+    } else {
+      localStorage.setItem("cursorAttraction", "start");
+    }
+
+    // Cleanup in case component is unmounted
+    return () => {
+      localStorage.setItem("cursorAttraction", "start");
+    };
+  }, [selectedWork]);
+
+
   if (!selectedWork) return null;
 
   const workContent = {

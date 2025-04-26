@@ -144,7 +144,26 @@ const CustomCursor = forwardRef((_, ref) => {
       });
     });
   }, []);
+  useEffect(() => {
+    const handleStorageChange = (e) => {
+      if (e.key === "attraction") {
+        if (e.newValue === "start") {
+          isAttracted = true;
+        } else if (e.newValue === "stop") {
+          isAttracted = false;
+        }
+      }
+    };
 
+
+    
+  
+    window.addEventListener("storage", handleStorageChange);
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
+  
   return (
     <div>
       <div ref={cursorRef} className="cursor" />

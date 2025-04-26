@@ -4,13 +4,13 @@ import './App.css';
 import Home from './pages/Home/Home';
 import Preloader from "./components/Preloader";
 import { CursorProvider } from './components/CursorContext';
+import Lenis from '@studio-freight/lenis';
 
 function App() {
   const [loading, setLoading] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Simple mobile width check
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
@@ -18,6 +18,24 @@ function App() {
 
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      smooth: true,
+      smoothTouch: false,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy(); // clean up on unmount
+    };
   }, []);
 
   const pageVariants = {
