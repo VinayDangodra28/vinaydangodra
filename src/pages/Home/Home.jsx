@@ -322,6 +322,8 @@ function Home() {
             <Skills />
             <Education />
             <Work onCardClick={setSelectedWork} />
+            <div className="work-spacer" style={{height: '80vh'}}></div>
+
             <Contact />
           </div>
         </div>

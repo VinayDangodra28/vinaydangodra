@@ -60,9 +60,9 @@ function App() {
 
   return (
     <div className="App">
-      {loading ? (
+      {/* {loading ? (
         <Preloader setLoading={setLoading} />
-      ) : (
+      ) : ( */}
         <AnimatePresence mode="wait">
           <CursorProvider>
             <motion.div
@@ -76,7 +76,7 @@ function App() {
             </motion.div>
           </CursorProvider>
         </AnimatePresence>
-      )}
+      {/* )} */}
     </div>
   );
 }

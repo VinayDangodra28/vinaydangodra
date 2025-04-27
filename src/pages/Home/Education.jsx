@@ -36,8 +36,8 @@ export const Education = () => {
     certificates.forEach((certificate) => {
       ScrollTrigger.create({
         trigger: certificate,
-        start: "top center",
-        end: "bottom center",
+        start: "50% center",
+        end: "150% center",
         // markers: true,
         onEnter: () => {
           const certificateId = certificate.getAttribute("data-id");
