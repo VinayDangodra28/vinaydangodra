@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import gsap from 'gsap';
+import Logo from '../../components/Logo';
 
 export const Banner = () => {
     const logo = useRef(null);
@@ -38,9 +39,7 @@ export const Banner = () => {
                 <div className="blob blob-3"></div>
                 <div className="blob blob-4"></div>
                 <div className='logo' ref={logobox}>
-                    <div className='logo_img'>
-                        <img src="/images/dvinaynewlogo.svg"></img>
-                    </div>
+                <Logo />
                 </div>
 
 

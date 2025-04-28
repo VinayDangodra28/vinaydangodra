@@ -1,30 +1,70 @@
 :root {
-    --primary-color: #008080;
-    /* Teal */
-    --accent-color: #FF9AA2;
-    /* Soft Pink */
-    --background-color: #F1F3F4;
-    /* Charcoal */
-    --text-color: #242424;
-    /* Light Gray */
-    --button-bg-color: #282929;
-    /* Teal */
-    --button-text-color: #FFFFFF;
-    /* White */
-    --link-color: #008080;
-    /* Teal */
-    --link-hover-color: #FF9AA2;
-    /* Soft Pink */
-    --primary-heading-color: #242424;
-    /* Light Gray */
-    --secondary-heading-color: #B0B0B0;
-    /* Gray */
-    --border-divider-color: #333333;
-    /* Dark Gray */
-    --highlight-color: #FF9AA2;
-    /* Soft Pink */
+    --primary-color-light: #008080;
+    --accent-color-light: #FF9AA2;
+    --background-color-light: #F1F3F4;
+    --background-secondary-color-light: #E5E5E5;
+    --text-color-light: #242424;
+    --button-bg-color-light: #282929;
+    --button-text-color-light: #FFFFFF;
+    --link-color-light: #008080;
+    --link-hover-color-light: #FF9AA2;
+    --primary-heading-color-light: #242424;
+    --secondary-heading-color-light: #B0B0B0;
+    --border-divider-color-light: #333333;
+    --highlight-color-light: #FF9AA2;
+
+    --primary-color-dark: #008080;
+    --accent-color-dark: #FF9AA2;
+    --background-color-dark: #121212;
+    --background-secondary-color-dark: #242424;
+    --text-color-dark: #E0E0E0;
+    --button-bg-color-dark: #333333;
+    --button-text-color-dark: #FFFFFF;
+    --link-color-dark: #008080;
+    --link-hover-color-dark: #FF9AA2;
+    --primary-heading-color-dark: #E0E0E0;
+    --secondary-heading-color-dark: #B0B0B0;
+    --border-divider-color-dark: #444444;
+    --highlight-color-dark: #FF9AA2;
+
+    --primary-color: var(--primary-color-light);
+    --accent-color: var(--accent-color-light);
+    --background-color: var(--background-color-light);
+    --background-color-inverse: var(--background-color-dark);
+    --background-secondary-color: var(--background-secondary-color-light);
+    --text-color: var(--text-color-light);
+    --text-color-inverse: var(--text-color-light);
+    --button-bg-color: var(--button-bg-color-light);
+    --button-text-color: var(--button-text-color-light);
+    --link-color: var(--link-color-light);
+    --link-hover-color: var(--link-hover-color-light);
+    --primary-heading-color: var(--primary-heading-color-light);
+    --secondary-heading-color: var(--secondary-heading-color-light);
+    --primary-heading-color-inverse: var(--primary-heading-color-dark);
+    --secondary-heading-color-inverse: var(--secondary-heading-color-dark);
+    --border-divider-color: var(--border-divider-color-light);
+    --highlight-color: var(--highlight-color-light);
 }
 
+.dark-mode {
+    --primary-color: var(--primary-color-dark);
+    --accent-color: var(--accent-color-dark);
+    --background-color: var(--background-color-dark);
+    --background-color-inverse: var(--background-color-light);
+    --background-secondary-color: var(--background-secondary-color-dark);
+    --text-color: var(--text-color-dark);
+    --text-color-inverse: var(--text-color-light);
+    --button-bg-color: var(--button-bg-color-dark);
+    --button-text-color: var(--button-text-color-dark);
+    --link-color: var(--link-color-dark);
+    --link-hover-color: var(--link-hover-color-dark);
+    --primary-heading-color: var(--primary-heading-color-dark);
+    --secondary-heading-color: var(--secondary-heading-color-dark);
+    --primary-heading-color-inverse: var(--primary-heading-color-light);
+    --secondary-heading-color-inverse: var(--secondary-heading-color-light);
+    --border-divider-color: var(--border-divider-color-dark);
+    --highlight-color: var(--highlight-color-dark);
+}
 
 @keyframes gradient {
     0% {
@@ -46,7 +86,9 @@ body {
     width: 100%;
     font-family: 'acherus';
     overflow-x: hidden;
+    /* transition: background-color 0.3s, color 0.3s; */
 }
+
 h1,
 h2,
 h3 {
@@ -74,12 +116,12 @@ button {
     border: 1px solid var(--border-divider-color);
     padding: 10px 20px;
     cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .highlight {
     background-color: var(--highlight-color);
 }
-
 
 .svg-path-container {
     position: absolute;
@@ -101,12 +143,6 @@ button {
     pointer-events: none;
 }
 
-
-
-
-
-
-
 .logo {
     width: 500px;
     height: 500px;
@@ -123,28 +159,10 @@ button {
 }
 
 .homepage-wrapper {
-
-    background: #E5E5E5;
-
+    background: var(--background-secondary-color);
     animation: gradient 25s ease infinite;
-
     background-size: 200% 200%;
 }
-
-@keyframes gradient {
-    0% {
-        background-position: 100% 100%;
-    }
-
-    50% {
-        background-position: 0% 100%;
-    }
-
-    100% {
-        background-position: 100% 100%;
-    }
-}
-
 
 .homepage {
     padding: 0px;
@@ -159,7 +177,6 @@ button {
     background: var(--background-color);
     pointer-events: none;
     z-index: 3;
-    /* opacity: 0; */
 }
 
 .bottom_fixer {
@@ -171,11 +188,9 @@ button {
     width: 100vw;
     z-index: 999;
     pointer-events: none;
-    /* opacity: 0; */
 }
 
 .center-fixer-wrapper {
-
     position: fixed;
     top: 0px;
     left: 0px;
@@ -193,7 +208,7 @@ button {
     flex-direction: column;
     justify-content: space-between;
     border-radius: 40px;
-    box-shadow: 2px 0px 20px 2px #b5b5b5 inset;
+    box-shadow: 2px 0px 20px 2px #3c3c3c inset;
 }
 
 .top-center-fixer {
@@ -232,22 +247,18 @@ button {
     background: radial-gradient(circle at 0px 0px, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 40px, var(--background-color) 0px);
 }
 
-
 .banner_wrapper {
     position: relative;
     height: 100vh;
     width: 100%;
-    /* padding: 50px; */
 }
 
 .banner {
-    /* background: linear-gradient(-45deg, #050919, #2f104d, #122D3D, #121B3B); */
     position: relative;
     perspective: 1000px;
     height: 100vh;
     border-radius: 20px;
     background-size: 200% 200%;
-    /* animation: gradient 25sease infinite; */
 }
 
 .banner_heading {
@@ -261,20 +272,19 @@ button {
     align-items: flex-start;
 }
 
-
 .banner_heading h1 {
     font-size: 10rem;
     line-height: 9rem;
     font-family: hungary;
 }
+
 span.first_name {
     margin-left: -1rem;
 }
+
 .moving-screen-wrapper {
     position: relative;
-
     perspective: 1000px;
-    /* overflow: hidden; */
     display: flex;
     flex-direction: column;
     padding: 50px;
@@ -292,18 +302,14 @@ span.first_name {
 
 .skills-section-wrapper {
     position: relative;
-    /* height: 200vh; */
     width: 100%;
-    /* padding: 20px; */
     padding-bottom: 0px;
     padding-top: 0px;
-
 }
 
 .skills-frame {
     position: relative;
     perspective: 100px;
-
     height: 100%;
 }
 
@@ -315,7 +321,6 @@ span.first_name {
     transform-origin: left bottom;
     padding: 50px;
 }
-
 
 .section-title {
     text-align: center;
@@ -343,7 +348,6 @@ span.first_name {
     justify-content: center;
     font-size: 2.5rem;
     transition: transform 0.25s ease;
-
     text-align: center;
 }
 
@@ -359,7 +363,6 @@ span.first_name {
 }
 
 .skill:hover {
-    /* box-shadow: -20px 20px 0px grey; */
     transform: translate(20px, -20px);
 }
 
@@ -387,20 +390,20 @@ span.first_name {
     height: 70vh;
     background-color: transparent;
     border: 1px solid var(--text-color);
+    background-color: var(--background-secondary-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 20px;
+    color: var(--text-color-inverse);
 }
 
-
 .skill-title {
-    color: var(--text-color);
+    color: var(--text-color-inverse);
     font-family: 'hungary';
     font-size: 2.5rem;
 }
-
 
 .sub-skill-card {
     font-size: 0.75rem;
@@ -472,39 +475,25 @@ h3.subskill-title {
     font-weight: 500;
 }
 
-
-
-
-
 .education-section-wrapper {
     position: relative;
-    /* height: 200vh; */
     width: 100%;
-    /* padding: 20px; */
     padding-bottom: 0px;
     padding-top: 0px;
-
 }
 
 .education-frame {
     position: relative;
     perspective: 100px;
-
     height: 100%;
 }
 
 .education-section {
     opacity: 1;
-    /* background-color: black; */
     color: var(--text-color);
     height: 100%;
     border-radius: 0px 0px 0px 0px;
     transform-origin: bottom;
-}
-
-.education-wrapper {
-    display: flex;
-    gap: 20px;
 }
 
 .education-wrapper {
@@ -531,11 +520,6 @@ h3.subskill-title {
     border-radius: 20px;
 }
 
-/* div#mca {
-    border-color: #007BFF;
-    box-shadow: 0px 0px 20px 0px #007BFF, 0px 0px 20px 0px #007BFF inset;
-    border-width: 2px;
-} */
 .qualifications-list {
     display: flex;
     flex-direction: column;
@@ -573,6 +557,7 @@ h3.subskill-title {
     width: 20vw;
     display: flex;
 }
+
 .certificates-description-inner-wrapper {
     position: relative;
     height: 100%;
@@ -581,15 +566,16 @@ h3.subskill-title {
 .certificates-description-content {
     position: sticky;
     top: 35%;
-    /* border: 1px solid var(--text-color); */
     border-radius: 20px;
     align-items: center;
     justify-content: center;
     overflow: hidden;
 }
+
 .certificates-list .certificate {
     height: 40vh;
 }
+
 .certificates-description {
     height: calc(100% - 50px - 4rem - 40px);
     width: 30vw;
@@ -602,7 +588,6 @@ h3.subskill-title {
     justify-content: center;
 }
 
-
 .certificate-title {
     font-family: 'hungary';
     font-size: 2rem;
@@ -612,7 +597,6 @@ h3.subskill-title {
     font-size: 2rem;
     font-family: 'hungary';
 }
-
 
 .modal {
     position: fixed;
@@ -624,115 +608,116 @@ h3.subskill-title {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .modal-content {
+}
+
+.modal-content {
     background: white;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
     max-width: 500px;
     position: relative;
-  }
-  
-  .modal-content img {
+}
+
+.modal-content img {
     width: 100%;
     border-radius: 10px;
-  }
-  
-  .close {
+}
+
+.close {
     position: absolute;
     top: 10px;
     right: 15px;
     font-size: 24px;
     cursor: pointer;
-  }
-  
-
+}
 
 /* Work Section CSS */
 .experience-work h3 {
     margin-bottom: 0.5rem;
     font-size: 1.5rem;
-    color: #2c3e50;
-  }
-  
-  .experience-work .company {
+    color: var(--text-color);
+}
+
+.experience-work .company {
     font-weight: 600;
-    color: #3498db;
+    color: var(--primary-heading-color);
     margin-bottom: 0.5rem;
-  }
-  
-  .experience-work .description {
-    color: #555;
-  }
-  
-  .projects-work .project-list {
+}
+
+.experience-work .description {
+    color: var(--text-color);
+}
+
+.projects-work .project-list {
     list-style: none;
     padding: 0;
     margin: 0;
-  }
-  
-  .projects-work .project-list li {
-    background: #f0f4f8;
+}
+
+.projects-work .project-list li {
+    background: var(--background-color);
     margin-bottom: 0.5rem;
     padding: 0.75rem;
     border-radius: 8px;
     transition: background 0.3s;
-  }
-  
-  .projects-work .project-list li:hover {
-    background: #d9e8f6;
-  }
-  
-  .graphic-grid {
+}
+
+.projects-work .project-list li:hover {
+    background: var(--background-color);
+    
+}
+
+.graphic-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 1rem;
     margin-top: 1rem;
-  }
-  
-  .graphic-grid img {
+}
+
+.graphic-grid img {
     width: 100%;
     height: auto;
     border-radius: 8px;
     object-fit: cover;
     transition: transform 0.3s;
-  }
-  
-  .graphic-grid img:hover {
+}
+
+.graphic-grid img:hover {
     transform: scale(1.05);
-  }
-  
-  .more-logos {
+}
+
+.more-logos {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f7f7f7;
+    background: var(--background-color);
     border: 2px dashed #ccc;
     font-weight: bold;
-    color: #888;
+    color: var(--text-color);
     border-radius: 8px;
     height: 100px;
-  }
-  
-  .sketch-work p, .github-work p {
+}
+
+.sketch-work p, .github-work p {
     font-size: 1.1rem;
-    color: #333;
-  }
-  
-  .github-work a {
+    color: var(--text-color);
+}
+
+.github-work a {
     color: #3498db;
     text-decoration: none;
     font-weight: bold;
-  }
-  
-  .github-work a:hover {
+}
+
+.github-work a:hover {
     text-decoration: underline;
-  }
-  .work-content {
+}
+
+.work-content {
     width: 100%;
-}  
+}
+
 .work-content-wrapper {
     position: sticky;
     top: 5vh;
@@ -744,23 +729,20 @@ h3.subskill-title {
     position: absolute;
     height: 80vh;
     width: 50vw;
-    /* background: black; */
     left: -20vw;
-    
-    border: 1px solid #242424;
+    border: 1px solid var(--text-color);
     border-radius: 20px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: var(--background-secondary-color);
 }
 
 .work-section-wrapper {
     position: relative;
-    /* height: 200vh; */
     width: 100%;
-    /* padding: 20px; */
     padding-bottom: 0px;
     padding-top: 0px;
     padding-top: 40px;
@@ -770,13 +752,11 @@ h3.subskill-title {
 .work-frame {
     position: relative;
     perspective: 100px;
-
     height: 100%;
 }
 
 .work-section {
     opacity: 1;
-    /* background-color: black; */
     color: var(--text-color);
     height: 100%;
     border-radius: 0px 0px 0px 0px;
@@ -784,9 +764,8 @@ h3.subskill-title {
 }
 
 .work-row {
-    display: flex
-;
-    height: 60vh;
+    display: flex;
+    height: 80vh;
     flex-direction: row;
     justify-content: flex-end;
 }
@@ -798,7 +777,6 @@ h3.subskill-title {
 #web-work {
     border-right: 0px;
 }
-
 
 #projects-work {
 }
@@ -815,7 +793,6 @@ h3.subskill-title {
     font-size: 2rem;
     display: flex;
     align-items: center;
-    /* border: 1px solid white; */
     justify-content: center;
     position: relative;
     overflow: hidden;
@@ -836,14 +813,14 @@ h3.subskill-title {
     transition: opacity 0.5s ease;
     z-index: 0;
 }
+
 .work-text {
     z-index: 1;
 }
+
 .work-card:hover .circle {
     opacity: 1;
-    /* Smoothly transition to opacity: 1 */
     transition: opacity 0.5s ease;
-    /* Ensure transition applies for this state */
 }
 
 .work-card .inner-box {
@@ -854,17 +831,14 @@ h3.subskill-title {
     background: rgba(255, 255, 255, 0.25)
 }
 
-/* To ensure immediate disappearance */
 .circle {
     opacity: 0;
     transition: opacity 0s;
-    /* No transition for opacity going back to 0 */
 }
 
 #graphic-work .circle {
     background: radial-gradient(#FFD700, transparent, transparent);
 }
-
 
 #web-work .circle {
     background: radial-gradient(#FF6F61, transparent, transparent);
@@ -877,7 +851,6 @@ h3.subskill-title {
 #sketch-work .circle {
     background: radial-gradient(#4d4d4d, transparent, transparent);
 }
-
 
 #github-work .circle {
     background: radial-gradient(#4B0082, transparent, transparent);
@@ -907,13 +880,6 @@ div#experience-work * {
     text-align: left;
 }
 
-
-
-
-
-
-
-
 .swiper-wrapper {
     height: 80vh !important;
 }
@@ -930,38 +896,27 @@ div#experience-work * {
     font-size: 18px;
     background: #fff;
     height: calc((100% - 30px) / 2) !important;
-
-    /* Center slide text vertically */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-
-
-
 /* Contact US Section CSS */
-
 .contact-section-wrapper {
     position: relative;
-    /* height: 200vh; */
     width: 100%;
-    /* padding: 20px; */
     padding-bottom: 0px;
     padding-top: 0px;
-
 }
 
 .contact-frame {
     position: relative;
     perspective: 100px;
-
     height: 100%;
 }
 
 .contact-section {
     opacity: 1;
-    /* background-color: black; */
     height: 100%;
     border-radius: 0px 0px 20px 20px;
     transform-origin: bottom;

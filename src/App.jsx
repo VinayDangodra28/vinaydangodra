@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 import Home from './pages/Home/Home';
 import Preloader from "./components/Preloader";
 import { CursorProvider } from './components/CursorContext';
 import Lenis from '@studio-freight/lenis';
+import { ThemeProvider, ToggleButton } from './components/ToggleButton'; // Adjust the path as necessary
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -59,25 +60,28 @@ function App() {
   }
 
   return (
-    <div className="App">
-      {/* {loading ? (
-        <Preloader setLoading={setLoading} />
-      ) : ( */}
-        <AnimatePresence mode="wait">
-          <CursorProvider>
-            <motion.div
-              variants={pageVariants}
-              initial="initial"
-              animate="in"
-              exit="out"
-              transition={pageTransition}
-            >
-              <Home />
-            </motion.div>
-          </CursorProvider>
-        </AnimatePresence>
-      {/* )} */}
-    </div>
+    <ThemeProvider>
+      <div className="App">
+        {loading ? (
+          <Preloader setLoading={setLoading} />
+        ) : (
+          <AnimatePresence mode="wait">
+            <CursorProvider>
+              <motion.div
+                variants={pageVariants}
+                initial="initial"
+                animate="in"
+                exit="out"
+                transition={pageTransition}
+              >
+                <ToggleButton />
+                <Home />
+              </motion.div>
+            </CursorProvider>
+          </AnimatePresence>
+        )}
+      </div>
+    </ThemeProvider>
   );
 }
 

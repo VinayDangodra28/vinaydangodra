@@ -1,0 +1,44 @@
+:root {
+    --button-size: 50px;
+    --light-mode-color: #242424;
+    --dark-mode-color: #f0f0f0;
+    --light-mode-bg: #f0f0f0;
+    --dark-mode-bg: #242424;
+    --transition-duration: 0.3s;
+}
+
+.toggle-button {
+    width: var(--button-size);
+    height: var(--button-size);
+    border: 1px solid var(--text-color);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color var(--transition-duration), color var(--transition-duration);
+    position: fixed;
+    top: calc(50vh - (var(--button-size) / 2));
+    left: 20px;
+    z-index: 999;
+}
+
+.toggle-button.light {
+    background-color: var(--light-mode-bg);
+    color: var(--light-mode-color);
+}
+
+.toggle-button.dark {
+    background-color: var(--dark-mode-bg);
+    color: var(--dark-mode-color);
+}
+
+.toggle-button:hover {
+    transform: scale(1.1);
+}
+
+.dark-mode {
+    --background-color: #121212;
+    --text-color: #E0E0E0;
+    /* Add other dark mode variables here */
+}
