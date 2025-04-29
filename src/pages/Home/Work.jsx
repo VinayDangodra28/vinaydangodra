@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const workData = {
   "experience-work": (
@@ -51,7 +54,6 @@ const workData = {
   )
 };
 
-
 export const Work = () => {
   const [circlePosition, setCirclePosition] = useState({ x: 0, y: 0 });
   const [activeCard, setActiveCard] = useState(null);
@@ -94,12 +96,15 @@ export const Work = () => {
   }, []);
 
   useEffect(() => {
-    if (activeCard && workContentRef.current) {
-      gsap.fromTo(
-        workContentRef.current,
-        { opacity: 1},
-        { opacity: 1,  duration: 0.5 }
-      );
+    if (activeCard) {
+      const card = cardRefs.current[activeCard];
+      if (activeCard !== 'experience-work') {
+        gsap.fromTo(
+          card,
+          { opacity: 0 },
+          { opacity: 1, duration: 0.5 }
+        );
+      }
     }
   }, [activeCard]);
 
@@ -112,12 +117,13 @@ export const Work = () => {
           </div>
           <div className="work-wrapper">
             <div className="work-content-wrapper">
-              <div className='work-content-inner-wrapper'>
-              <div className="work-content" ref={workContentRef}>
-                {activeCard && workData[activeCard]}
-              </div>
+              <div className="work-content-inner-wrapper">
+                <div className="work-content" ref={workContentRef}>
+                  {activeCard && workData[activeCard]}
+                </div>
               </div>
             </div>
+
             {/* Work Experience */}
             <div className="work-row">
               <div
@@ -127,13 +133,16 @@ export const Work = () => {
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
               >
-                <div className="circle" style={{ top: `${circlePosition.y}px`, left: `${circlePosition.x}px` }} />
+                <div
+                  className="circle"
+                  style={{ top: `${circlePosition.y}px`, left: `${circlePosition.x}px` }}
+                />
                 <div className="work-text">Experience</div>
               </div>
             </div>
 
+            {/* Projects */}
             <div className="work-row">
-              {/* Projects */}
               <div
                 className="work-card"
                 id="projects-work"
@@ -141,13 +150,16 @@ export const Work = () => {
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
               >
-                <div className="circle" style={{ top: `${circlePosition.y}px`, left: `${circlePosition.x}px` }} />
+                <div
+                  className="circle"
+                  style={{ top: `${circlePosition.y}px`, left: `${circlePosition.x}px` }}
+                />
                 <div className="work-text">Projects</div>
               </div>
             </div>
 
+            {/* Graphic Design */}
             <div className="work-row">
-              {/* Graphic Design */}
               <div
                 className="work-card"
                 id="graphic-work"
@@ -155,13 +167,16 @@ export const Work = () => {
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
               >
-                <div className="circle" style={{ top: `${circlePosition.y}px`, left: `${circlePosition.x}px` }} />
-                <div className="work-text">Graphic Design</div>
+                <div
+                  className="circle"
+                  style={{ top: `${circlePosition.y}px`, left: `${circlePosition.x}px` }}
+                />
+                <div className="work-text">Graphics</div>
               </div>
             </div>
 
+            {/* Sketch */}
             <div className="work-row">
-              {/* Sketches */}
               <div
                 className="work-card"
                 id="sketch-work"
@@ -169,26 +184,31 @@ export const Work = () => {
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
               >
-                <div className="circle" style={{ top: `${circlePosition.y}px`, left: `${circlePosition.x}px` }} />
+                <div
+                  className="circle"
+                  style={{ top: `${circlePosition.y}px`, left: `${circlePosition.x}px` }}
+                />
                 <div className="work-text">Sketches</div>
               </div>
             </div>
 
+            {/* GitHub */}
             <div className="work-row">
-              {/* GitHub */}
-              <a
-                href="https://github.com/VinayDangodra28/"
-                target="_blank"
+              <div
                 className="work-card"
                 id="github-work"
                 ref={(el) => (cardRefs.current['github-work'] = el)}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
               >
-                <div className="circle" style={{ top: `${circlePosition.y}px`, left: `${circlePosition.x}px` }} />
+                <div
+                  className="circle"
+                  style={{ top: `${circlePosition.y}px`, left: `${circlePosition.x}px` }}
+                />
                 <div className="work-text">GitHub</div>
-              </a>
+              </div>
             </div>
+
           </div>
         </div>
       </div>

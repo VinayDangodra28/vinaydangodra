@@ -6,7 +6,10 @@ import './ToggleButton.css';
 const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(() => {
+        // Initialize based on system preference
+        return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    });
 
     useEffect(() => {
         const root = document.documentElement;

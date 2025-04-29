@@ -184,7 +184,7 @@ function Home() {
           scrollTrigger: {
             trigger: '.moving-screen-wrapper',
             start: '20% top',
-            end: '40% top',
+            end: '25% top',
             scrub: true,
             invalidateOnRefresh: true,
             // markers: true,
@@ -199,7 +199,7 @@ function Home() {
         gsap.timeline({
           scrollTrigger: {
             trigger: '.moving-screen-wrapper',
-            start: '40% top',
+            start: '25% top',
             end: '60% top',
             scrub: true,
             invalidateOnRefresh: true,
