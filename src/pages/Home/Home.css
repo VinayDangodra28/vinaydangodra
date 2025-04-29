@@ -143,6 +143,20 @@ button {
     pointer-events: none;
 }
 
+.sub-skill-icon svg * {
+    fill: var(--text-color);
+}
+
+
+span.svg-icon svg * {
+    fill: var(--text-color);
+}
+span.svg-icon svg {
+    height: 10rem;
+    width: 10rem;
+    margin: -2.5rem -2.5rem -2rem -2.5rem;
+    object-fit: contain;
+}
 .logo {
     width: 500px;
     height: 500px;
@@ -467,6 +481,9 @@ h3.subskill-title {
     text-align: center;
     font-family: 'hungary';
     line-height: 5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .subskill-description .section h4 {
@@ -796,7 +813,7 @@ h3.subskill-title {
     position: relative;
     overflow: hidden;
     font-family: 'hungary';
-    width: 20.5vw;
+    width: 22vw;
 }
 
 /* Circle styles */

@@ -108,7 +108,7 @@ export const Skills = () => {
       icon: "faPencilRuler",
       subSkills: [
         {
-          name: "Figma - UI / UX & Prototyping",
+          name: "Figma",
           icon: "fa-brands fa-figma",
           sections: {
             whatIKnow: "I create website wireframes and high-fidelity prototypes to visualize website structure for clients and stakeholders. I use Figma to refine designs for personal and team projects.",
@@ -116,7 +116,7 @@ export const Skills = () => {
           }
         },
         {
-          name: "Logo Designing",
+          name: "Logo Design",
           icon: "fa-solid fa-palette",
           sections: {
             whatIKnow: "I design logos by understanding the brand’s identity and translating it into meaningful visuals. I use tools like Figma and Illustrator to create minimalistic, abstract, and unique designs that have been well-received by clients.",
@@ -147,7 +147,7 @@ export const Skills = () => {
           }
         },
         {
-          name: "Augmented Reality",
+          name: "AR",
           icon: "fa-solid fa-vr-cardboard",
           sections: {
             whatIKnow: "I’ve created simple web-based AR projects using MindAR.js, such as marker-based business cards.",
