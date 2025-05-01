@@ -38,8 +38,11 @@ export const Banner = () => {
                 <div className="blob blob-2"></div>
                 <div className="blob blob-3"></div>
                 <div className="blob blob-4"></div>
+                <div className="logo_wrapper">
+                    
                 <div className='logo' ref={logobox}>
-                <Logo />
+                    <Logo />
+                </div>
                 </div>
 
 

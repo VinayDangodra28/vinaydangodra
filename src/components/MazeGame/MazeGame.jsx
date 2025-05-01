@@ -16,9 +16,12 @@ export default function MazeGame() {
   const mazeRef = useRef(null); // Add a ref for the maze container
 
 
+  const isMobile = window.innerWidth <= 768;
 
-  const rows = 10;
-  const cols = 45;
+
+  const rows = isMobile ? 10 : 10;
+  const cols = isMobile ? 12 : 45;
+  
 
   const [userPosition, setUserPosition] = useState([0, 0]);
 

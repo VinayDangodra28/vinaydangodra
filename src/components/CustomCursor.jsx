@@ -135,13 +135,16 @@ const CustomCursor = forwardRef((_, ref) => {
       followerPos.x += (mouse.x - followerPos.x) * 0.2 + attractionForce.x * 0.1;
       followerPos.y += (mouse.y - followerPos.y) * 0.2 + attractionForce.y * 0.1;
 
-      gsap.set(follower, {
+      gsap.to(follower, {
+        duration: 2.5, // control smoothness
         x: followerPos.x,
         y: followerPos.y,
-        scaleX: 1 + currentScale,
-        scaleY: 1 - currentScale,
+        scaleX: 1.5 + currentScale,
+        scaleY: 1.5 - currentScale,
         rotation: currentAngle,
+        ease: "power4.out",
       });
+      
     });
   }, []);
   useEffect(() => {

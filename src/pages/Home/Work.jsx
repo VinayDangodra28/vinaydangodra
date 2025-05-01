@@ -1,14 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import GithubProjects from "../../components/GithubProjects"; // Adjust path accordingly
+
 
 gsap.registerPlugin(ScrollTrigger);
 
 const workData = {
   "experience-work": (
     <div className="experience-work">
-      <h3>Web Developer & Designer</h3>
-      <p className="company">🎯 Creo Elements LLP (June 2023 - Present)</p>
+      <div className="ex">
+        <h3>Web Developer & Designer</h3>
+        <p className="company">🎯 Creo Elements LLP (June 2023 - Present)</p>
+      </div>
       <p className="description">
         Started as an intern, now the sole web developer & designer, handling everything from design to deployment, SEO, and Google integrations.
       </p>
@@ -18,10 +22,30 @@ const workData = {
     <div className="projects-work">
       <ul className="project-list">
         <li>
-          🎨 <strong>FlowTile</strong> — A <strong>React-based</strong> canvas tool for creating <strong>infinitely repeating patterns</strong>.
+          <div className="experience-work">
+            <div className="ex">
+              <div className='project-title'>
+                <img src="/logos/flowtile.png" alt="FlowTile" />
+                <h3>FlowTile</h3>
+              </div>
+
+              <p className="company">icons react next tailwind css </p>
+            </div>
+            <p className="description">
+              A React-based canvas tool for creating infinitely repeating patterns.
+            </p>
+          </div>
         </li>
         <li>
-          🕶️ <strong>Creative Windows AR Card</strong> — A <strong>marker-based AR</strong> system using <strong>MindAR.js</strong>.
+          <div className="experience-work">
+            <div className="ex">
+              <h3>AR Card</h3>
+              <p className="company">icons of HTML CSS JS AR.js Aframe</p>
+            </div>
+            <p className="description">
+              A marker-based AR system using MindAR.js.
+            </p>
+          </div>
         </li>
       </ul>
     </div>
@@ -42,21 +66,14 @@ const workData = {
       <p>A collection of <strong>pencil sketches</strong> showcased in a stylish gallery.</p>
     </div>
   ),
-  "github-work": (
-    <div className="github-work">
-      <p>
-        Explore my open-source projects on{" "}
-        <a href="https://github.com/dvinay" target="_blank" rel="noopener noreferrer">
-          GitHub
-        </a>.
-      </p>
-    </div>
-  )
+  "github-work": <GithubProjects />,
+
 };
 
 export const Work = () => {
   const [circlePosition, setCirclePosition] = useState({ x: 0, y: 0 });
-  const [activeCard, setActiveCard] = useState(null);
+  const [activeCard, setActiveCard] = useState("experience-work");
+  const [activecircle, setActivecircle] = useState(null);
   const workContentRef = useRef(null);
   const cardRefs = useRef({});
 
@@ -78,6 +95,7 @@ export const Work = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setActiveCard(entry.target.id);
+            setActivecircle(entry.target.id);
           }
         });
       },
@@ -107,6 +125,41 @@ export const Work = () => {
       }
     }
   }, [activeCard]);
+
+  useEffect(() => {
+    if (activecircle) {
+      // Select all circles and set their opacity to 0
+      const allCircles = document.querySelectorAll('.circle');
+      allCircles.forEach(circle => {
+        gsap.to(circle, { opacity: 0, duration: 0.5 });
+      });
+
+      // Select the active circle and set its opacity to 1
+      const presentcard = document.getElementById(activecircle);
+      const activeCircle = presentcard.querySelector('.circle');
+      gsap.to(activeCircle, { opacity: 1, duration: 0.5 });
+
+      // Kill previous ScrollTrigger if exists
+      ScrollTrigger.getAll().forEach(trigger => {
+        if (trigger.trigger === presentcard) {
+          trigger.kill();
+        }
+      });
+
+      // Set up ScrollTrigger for the active circle
+      gsap.to(activeCircle, {
+        top: "100%",
+        left: "100%",
+        scrollTrigger: {
+          trigger: presentcard,
+          start: "top 50%",
+          end: "bottom 50%",
+          scrub: true,
+          // markers: true
+        },
+      });
+    }
+  }, [activecircle]);
 
   return (
     <div className="work-section-wrapper">

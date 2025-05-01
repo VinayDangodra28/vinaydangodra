@@ -5,23 +5,23 @@
     z-index: 9999999999999;
   }
   .cursor {
-    width: 6px;
-    height: 6px;
+    width: 3px;
+    height: 3px;
     background: #242424;
     border-radius: 50%;
     pointer-events: none;
   }
   .follower {
-    width: 30px;
-    height: 30px;
+    width: 15px;
+    height: 15px;
     border: 2px solid #242424;
     border-radius: 50%;
     pointer-events: none;
   }
   .cursor-ring {
-    width: 50px;
-    height: 50px;
-    border: 2px solid rgba(36, 36, 36, 0.5);
+    width: 25px;
+    height: 25px;
+    border: 1px solid rgba(36, 36, 36, 0.5);
     border-radius: 50%;
     pointer-events: none;
   }
@@ -36,16 +36,16 @@ mix-blend-mode: difference; /* Makes the cursor contrast with the background */
 }
 
 .cursor {
-width: 6px;
-height: 6px;
+width: 3px;
+height: 3px;
 background: #fff; /* White cursor */
 border-radius: 50%;
 pointer-events: none;
 }
 
 .follower {
-width: 30px;
-height: 30px;
+width: 15px;
+height: 15px;
 border: 2px solid #fff; /* White border */
 background-color: #fff;
 border-radius: 50%;
@@ -53,8 +53,8 @@ pointer-events: none;
 }
 
 .cursor-ring {
-width: 50px;
-height: 50px;
+width: 25px;
+height: 25px;
 border: 2px solid rgba(255, 255, 255, 0.5); /* White semi-transparent ring */
 border-radius: 50%;
 pointer-events: none;
