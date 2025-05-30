@@ -17,10 +17,7 @@ const Preloader = ({ setLoading }) => {
     const typeInterval = setInterval(() => {
       if (index < text.length) {
         typedText += text[index];
-        textRef.current.innerHTML = typedText.replace(
-          "portfolio@latest",
-          `<span class="glitch">&nbsp;portfolio@latest</span>`
-        );
+        textRef.current.innerHTML = typedText;
         index++;
       } else {
         clearInterval(typeInterval);
@@ -28,13 +25,12 @@ const Preloader = ({ setLoading }) => {
           gsap.to(textRef.current, {
             opacity: 0,
             scale: 0.95,
-            filter: "blur(5px)",
-            duration: 0.7,
+            duration: 0.4,
             onComplete: () => setShowStraps(true),
           });
-        }, 1000);
+        }, 500);
       }
-    }, 50);
+    }, 100);
 
     return () => clearInterval(typeInterval);
   }, []);
@@ -51,9 +47,9 @@ const Preloader = ({ setLoading }) => {
       pairs.forEach((pair, order) => {
         gsap.to(pair.map((index) => strapsRef.current[index]), {
           x: "105%",
-          duration: 1.2,
+          duration: 0.8,
           ease: "power4.inOut",
-          delay: order * 0.3,
+          delay: order * 0.2,
         });
 
         if (order === pairs.length - 1) {
@@ -62,9 +58,16 @@ const Preloader = ({ setLoading }) => {
             { x: "-200%" },
             {
               x: "200%",
-              duration: 3.5,
+              duration: 2,
               ease: "power4.inOut",
-              onComplete: () => setLoading(false),
+              onComplete: () => {
+                gsap.to(preloaderRef.current, {
+                  opacity: 0,
+                  duration: 0.8,
+                  ease: "power2.inOut",
+                  onComplete: () => setLoading(false)
+                });
+              },
             }
           );
         }
