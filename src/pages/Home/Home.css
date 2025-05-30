@@ -721,7 +721,13 @@ h3.subskill-title {
     background: var(--background-color);
     
 }
-
+p.company.logos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
 .graphic-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -889,7 +895,7 @@ h3.subskill-title {
     opacity: 0;
     transition: opacity 0s;
 }
-
+/* 
 #graphic-work .circle {
     background: radial-gradient(#FFD700, transparent, transparent);
 }
@@ -902,13 +908,21 @@ h3.subskill-title {
     background: radial-gradient(#7c9dc6, transparent, transparent);
 }
 
+#project-flowtile .circle {
+    background: radial-gradient(#7c9dc6, transparent, transparent);
+}
+
+#project-arcard .circle {
+    background: radial-gradient(#FF4500, transparent, transparent);
+}
+
 #sketch-work .circle {
     background: radial-gradient(#4d4d4d, transparent, transparent);
 }
 
 #github-work .circle {
     background: radial-gradient(#4B0082, transparent, transparent);
-}
+} */
 
 #experience-work {
     padding: 20px;

@@ -40,10 +40,16 @@ function Home() {
             transformOrigin: 'left 10%',
             opacity: 0,
             transform: 'rotateY(0deg) translateX(calc(17.5vw - 2.5rem))',
+            filter: 'blur(10px)',
+            boxShadow: '0 40px 80px 0 rgba(0,0,0,0.15)',
+            scale: 0.98,
           },
           {
             transformOrigin: 'left 10%',
             transform: 'rotateY(5deg) translateX(0px)',
+            filter: 'blur(0px)',
+            scale: 1,
+            boxShadow: '0 8px 32px 0 rgba(0,0,0,0.10)',
             duration: 1,
             opacity: 1,
           }
@@ -232,7 +238,7 @@ function Home() {
             {/* {isMobile ? null : <Work onCardClick={setSelectedWork} />} */}
             <Work onCardClick={setSelectedWork} />
             {isMobile ? null : <div className="work-spacer" style={{ height: '80vh' }}></div>}
-           
+
             <Contact />
           </div>
         </div>

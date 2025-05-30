@@ -142,7 +142,7 @@ const CustomCursor = forwardRef((_, ref) => {
         scaleX: 1.5 + currentScale,
         scaleY: 1.5 - currentScale,
         rotation: currentAngle,
-        ease: "power4.out",
+        ease: "back.out(1.7)",
       });
       
     });
