@@ -2,11 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Banner } from './Banner';
 import './Home.css';
 import './HomeMobile.css';
+import './WorkMobile.css';
+import './SkillsMobile.css';
 import { Skills } from './Skills';
+import { SkillsMobile } from './SkillsMobile';
 import { ScrollTrigger } from 'gsap/all';
 import gsap from 'gsap';
 import { Education } from './Education';
 import { Work } from './Work';
+import { WorkMobile } from './WorkMobile';
 import { Contact } from './Contact';
 import MazeGame from '../../components/MazeGame/MazeGame';
 import Popup from '../../components/Popup';
@@ -233,10 +237,9 @@ function Home() {
         <Banner />
         <div className='moving-screen-wrapper'>
           <div className='moving-screen'>
-            <Skills />
+            {isMobile ? <SkillsMobile /> : <Skills />}
             <Education />
-            {/* {isMobile ? null : <Work onCardClick={setSelectedWork} />} */}
-            <Work onCardClick={setSelectedWork} />
+            {isMobile ? <WorkMobile /> : <Work onCardClick={setSelectedWork} />}
             {isMobile ? null : <div className="work-spacer" style={{ height: '80vh' }}></div>}
 
             <Contact />

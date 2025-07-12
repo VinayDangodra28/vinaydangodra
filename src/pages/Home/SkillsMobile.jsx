@@ -1,25 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { ThemeContext } from "../../components/ToggleButton";
 
-export const Skills = () => {
-  const [activeSkill, setActiveSkill] = useState({
-    title: 'Skill Title',
-    description: 'Skill Description',
-  });
+export const SkillsMobile = () => {
+  const [selectedSkill, setSelectedSkill] = useState(null);
+  const [selectedSubSkill, setSelectedSubSkill] = useState(null);
+  const [showSkillModal, setShowSkillModal] = useState(false);
+  const { isDarkMode } = useContext(ThemeContext);
 
-  const [activeSubSkill, setActiveSubSkill] = useState({
-    name: '',
-    icon: '',
-    iconType: '',
-    whatIKnow: '',
-    whatIWantToDo: '',
-  });
-
-  // Updated skillsData with new content
+  // Same skills data as desktop version
   const skillsData = {
     frontend: {
       title: "Frontend",
       description: "Modern interfaces using HTML, CSS, JavaScript, React, and GSAP.",
       icon: "fa-solid fa-code",
+      gradient: "linear-gradient(135deg, #003D3D 0%, #00BFFF 100%)",
       subSkills: [
         {
           name: "HTML",
@@ -68,6 +62,7 @@ export const Skills = () => {
       title: "Backend",
       description: "APIs, databases, and logic with Node.js, Python, and SQL.",
       icon: "fa-solid fa-server",
+      gradient: "linear-gradient(135deg, #C62828 0%, #FF9AA2 100%)",
       subSkills: [
         {
           name: "Node.js",
@@ -108,7 +103,8 @@ export const Skills = () => {
     design: {
       title: "Design",
       description: "UI/UX, wireframes, and brand visuals.",
-      icon: "faPencilRuler",
+      icon: "fa-solid fa-pencil-ruler",
+      gradient: "linear-gradient(135deg, #FF1493 0%, #008080 100%)",
       subSkills: [
         {
           name: "UI/UX Design",
@@ -132,7 +128,8 @@ export const Skills = () => {
     other: {
       title: "Other Skills",
       description: "WordPress, Shopify, AR, and SEO knowledge.",
-      icon: "faToolbox",
+      icon: "fa-solid fa-toolbox",
+      gradient: "linear-gradient(135deg, #2F4F4F 0%, #708090 100%)",
       subSkills: [
         {
           name: "WordPress",
@@ -178,88 +175,126 @@ export const Skills = () => {
     }
   };
 
-
-  const handleSubSkillHover = (subSkill) => {
-    setActiveSubSkill({
-      name: subSkill.name,
-      icon: subSkill.icon,
-      iconType: subSkill.iconType,
-      whatIKnow: subSkill.sections.whatIKnow,
-      whatIWantToDo: subSkill.sections.whatIWantToDo,
-    });
+  const handleSkillClick = (skillKey) => {
+    if (selectedSkill === skillKey) {
+      setSelectedSkill(null);
+    } else {
+      setSelectedSkill(skillKey);
+    }
   };
 
-  return (
-    <div className="skills-section-wrapper">
-      <div className="skills-frame">
-        <div className="skills-section a_section">
-          <h2 className="skills-title section-title">My Skillset</h2>
-          <div className="skills-list">
-            {Object.keys(skillsData).map((key) => (
-              <div className="skill-wrapper" key={key}>
-                <div className="skill" id={key}>
-                  <div className="skill-title">
-                    <i className={`${skillsData[key].icon} skill-icon`}></i> {/* Skill icon */}
-                    {skillsData[key].title}
-                  </div>
-                  <div className="sub-skills">
-                    {skillsData[key].subSkills.map((subSkill, index) => (
-                      <div
-                        className="sub-skill-card attract"
-                        key={index}
-                        onMouseEnter={() => handleSubSkillHover(subSkill)}
-                      >
-                        {/* Conditional rendering for SVG or class-based icons */}
-                        {subSkill.iconType === "svg" ? (
-                          <span
-                            className="sub-skill-icon"
-                            dangerouslySetInnerHTML={{ __html: subSkill.icon }}
-                          />
-                        ) : (
-                          <i className={`${subSkill.icon} sub-skill-icon`} />
-                        )}
-                        {subSkill.name}
-                      </div>
-                    ))}
-                  </div>
+  const handleSubSkillClick = (subSkill) => {
+    setSelectedSubSkill(subSkill);
+    setShowSkillModal(true);
+  };
 
-                </div>
-              </div>
-            ))}
+  const closeSkillModal = () => {
+    setShowSkillModal(false);
+    setSelectedSubSkill(null);
+  };
+
+  const renderSkillModal = () => {
+    if (!showSkillModal || !selectedSubSkill) return null;
+
+    return (
+      <div className="skill-modal-overlay" onClick={closeSkillModal}>
+        <div className="skill-modal" onClick={(e) => e.stopPropagation()}>
+          <div className="skill-modal-header">
+            <div className="skill-modal-icon">
+              {selectedSubSkill.iconType === "svg" ? (
+                <span
+                  className="sub-skill-icon"
+                  dangerouslySetInnerHTML={{ __html: selectedSubSkill.icon }}
+                />
+              ) : (
+                <i className={`${selectedSubSkill.icon} sub-skill-icon`} />
+              )}
+            </div>
+            <h3 className="skill-modal-title">{selectedSubSkill.name}</h3>
+            <button className="skill-modal-close" onClick={closeSkillModal}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
           </div>
-
-          <div className="skill-details">
-            {activeSubSkill.name ? (
-              <>
-                <h3 className="subskill-title">
-                  {activeSubSkill.iconType === "svg" ? (
-                    <span
-                      className="svg-icon"
-                      dangerouslySetInnerHTML={{ __html: activeSubSkill.icon }}
-                    />
-                  ) : (
-                    <i className={activeSubSkill.icon}></i>
-                  )}
-                  {activeSubSkill.name}
-                </h3>
-
-                <div className="subskill-description">
-                  <div className="section">
-                    <h4>What I Know</h4>
-                    <p>{activeSubSkill.whatIKnow}</p>
-                  </div>
-                  <div className="section">
-                    <h4>What I Want to Do</h4>
-                    <p>{activeSubSkill.whatIWantToDo}</p>
-                  </div>
-                </div>
-              </>
-            ) : (
-              <p>Hover over a sub-skill to see details.</p>
-            )}
+          
+          <div className="skill-modal-content">
+            <div className="skill-modal-section">
+              <h4 className="modal-section-title">What I Know</h4>
+              <div className="modal-section-divider"></div>
+              <p className="modal-section-content">{selectedSubSkill.sections.whatIKnow}</p>
+            </div>
+            
+            <div className="skill-modal-section">
+              <h4 className="modal-section-title">What I Want to Do</h4>
+              <div className="modal-section-divider"></div>
+              <p className="modal-section-content">{selectedSubSkill.sections.whatIWantToDo}</p>
+            </div>
           </div>
         </div>
       </div>
+    );
+  };
+
+  return (
+    <div className={`skills-mobile-section ${isDarkMode ? 'dark-mode' : ''}`}>
+      <div className="skills-mobile-header">
+        <h2 className="skills-mobile-title">My Skillset</h2>
+        <p className="skills-mobile-subtitle">Explore my technical expertise</p>
+      </div>
+      
+      <div className="skills-mobile-grid">
+        {Object.keys(skillsData).map((skillKey) => (
+          <div
+            key={skillKey}
+            className={`skill-mobile-card ${selectedSkill === skillKey ? 'expanded' : ''}`}
+          >
+            <div 
+              className="skill-card-header"
+              style={{ background: skillsData[skillKey].gradient }}
+              onClick={() => handleSkillClick(skillKey)}
+            >
+              <div className="skill-card-icon">
+                <i className={skillsData[skillKey].icon}></i>
+              </div>
+              <h3 className="skill-card-title">{skillsData[skillKey].title}</h3>
+              <div className={`expand-indicator ${selectedSkill === skillKey ? 'expanded' : ''}`}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M7 10l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+            </div>
+            
+            <div className={`skill-card-content ${selectedSkill === skillKey ? 'visible' : ''}`}>
+              <p className="skill-description">{skillsData[skillKey].description}</p>
+              
+              <div className="sub-skills-grid">
+                {skillsData[skillKey].subSkills.map((subSkill, index) => (
+                  <div
+                    key={index}
+                    className="sub-skill-item"
+                    onClick={() => handleSubSkillClick(subSkill)}
+                  >
+                    <div className="sub-skill-icon">
+                      {subSkill.iconType === "svg" ? (
+                        <span
+                          className="sub-skill-icon"
+                          dangerouslySetInnerHTML={{ __html: subSkill.icon }}
+                        />
+                      ) : (
+                        <i className={`${subSkill.icon} sub-skill-icon`} />
+                      )}
+                    </div>
+                    <span className="sub-skill-name">{subSkill.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      {renderSkillModal()}
     </div>
   );
-};
+}; 

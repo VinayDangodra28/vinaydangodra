@@ -473,7 +473,7 @@ span.first_name {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: grey;
+    background-color: var(--background-color);
     border-radius: 20px;
     width: 50%;
     height: 100%;
@@ -483,7 +483,7 @@ span.first_name {
 
 .subskill-description .section p {
     text-align: center;
-    font-size: 0.75rem;
+    font-size: 1.25rem;
 }
 
 h3.subskill-title {
@@ -497,7 +497,7 @@ h3.subskill-title {
 }
 
 .subskill-description .section h4 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     color: var(--text-color);
     font-weight: 500;
 }
@@ -792,7 +792,8 @@ p.company.logos {
     left: -20vw;
     border: 1px solid var(--text-color);
     border-radius: 20px;
-    padding: 20px;
+    /* padding: 20px; */
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;

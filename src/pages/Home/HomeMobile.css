@@ -450,5 +450,244 @@
 
         /* Maze */
 
+        /* Education Section Mobile Layout */
+        .education-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding: 20px 0;
+        }
+
+        .education-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, var(--text-color) 0%, var(--primary-heading-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+        }
+
+        .qualifications {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .qualifications-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .qualification {
+            width: 100%;
+            padding: 25px;
+            border: 2px solid var(--text-color);
+            border-radius: 20px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.05));
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .qualification::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .qualification:hover::before {
+            left: 100%;
+        }
+
+        .qualification:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-heading-color);
+        }
+
+        .certificates {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .certificates-list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .certificate {
+            width: 100%;
+            height: auto;
+            min-height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 25px;
+            justify-content: flex-start;
+            border: 2px solid var(--text-color);
+            border-radius: 20px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.05));
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certificate::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .certificate:hover::before {
+            left: 100%;
+        }
+
+        .certificate:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-heading-color);
+        }
+
+        .certificates-description {
+            width: 100%;
+            position: relative;
+            top: 0;
+            left: 0;
+            height: auto;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .certificates-description-inner-wrapper {
+            position: relative;
+            left: 0;
+            width: 100%;
+            top: 0;
+        }
+
+        .certificate-image {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .certificate-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .certificate-title {
+            font-family: 'hungary';
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--primary-heading-color);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .qualification-title {
+            font-size: 1.8rem;
+            font-family: 'hungary';
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--primary-heading-color);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .certificate-school,
+        .qualification-school {
+            font-size: 1.1rem;
+            margin: 8px 0;
+            color: var(--text-color);
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .certificate-description,
+        .qualification-date {
+            font-size: 1rem;
+            margin: 8px 0;
+            color: var(--text-color);
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        .certificate-image-mobile {
+            width: 100%;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .certificate-image-mobile:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .certificate-image-mobile img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        /* Add subtle section dividers */
+        .qualifications::before,
+        .certificates::before {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-heading-color), var(--text-color));
+            border-radius: 2px;
+            margin: 0 auto 20px auto;
+        }
+
+        /* Add icons or badges to make it more engaging */
+        .qualification::after,
+        .certificate::after {
+            content: '🎓';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            opacity: 0.7;
+        }
+
+        .certificate::after {
+            content: '🏆';
+        }
 
     }

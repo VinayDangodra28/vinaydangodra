@@ -1,0 +1,510 @@
+/* Mobile Work Section Styles */
+.work-mobile-section {
+  padding: 2rem 1rem;
+  background: var(--background-secondary-color);
+  min-height: 100vh;
+  transition: background-color 0.3s ease;
+  font-family: 'acherus';
+}
+
+.work-mobile-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+}
+
+.work-mobile-title {
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: 'hungary';
+  color: var(--primary-heading-color);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.work-mobile-subtitle {
+  font-size: 1.1rem;
+  color: var(--secondary-heading-color);
+  font-weight: 400;
+  margin: 0;
+  font-family: 'acherus';
+}
+
+.work-mobile-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Card Styles */
+.work-mobile-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+}
+
+.dark-mode .work-mobile-card {
+  background: rgba(36, 36, 36, 0.95);
+  border: 1px solid rgba(68, 68, 68, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.work-mobile-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.dark-mode .work-mobile-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.work-mobile-card.expanded {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .work-mobile-card.expanded {
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Card Header */
+.card-header {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.work-mobile-card:hover .card-header::before {
+  opacity: 1;
+}
+
+.card-icon {
+  font-size: 2rem;
+  margin-right: 1rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.card-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: 'hungary';
+  color: white;
+  margin: 0;
+  flex: 1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  line-height: 1.2;
+}
+
+.expand-indicator {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: white;
+}
+
+.expand-indicator.expanded {
+  transform: rotate(180deg);
+}
+
+/* Card Content */
+.card-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: white;
+}
+
+.dark-mode .card-content {
+  background: var(--background-secondary-color);
+}
+
+.card-content.visible {
+  max-height: 1000px;
+  padding: 1.5rem;
+}
+
+.mobile-card-content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-content.visible .mobile-card-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Experience Content */
+.experience-header {
+  margin-bottom: 1.5rem;
+}
+
+.experience-header h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  font-family: 'hungary';
+  color: var(--primary-heading-color);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+}
+
+.company-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.company-name {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  font-family: 'acherus';
+}
+
+.duration {
+  font-size: 0.95rem;
+  color: var(--secondary-heading-color);
+  font-weight: 400;
+  font-family: 'acherus';
+}
+
+.experience-description {
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  font-family: 'acherus';
+}
+
+.highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.highlight-tag {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: 'acherus';
+  box-shadow: 0 2px 8px rgba(0, 128, 128, 0.3);
+}
+
+/* Projects Content */
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.project-card {
+  display: flex;
+  background: var(--background-color);
+  border-radius: 16px;
+  padding: 1rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-divider-color);
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.dark-mode .project-card {
+  background: var(--background-secondary-color);
+  border: 1px solid var(--border-divider-color);
+}
+
+.dark-mode .project-card:hover {
+  background: var(--background-color);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.project-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-right: 1rem;
+  flex-shrink: 0;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .project-image {
+  background: var(--background-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-fallback {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  font-family: 'hungary';
+}
+
+.project-info {
+  flex: 1;
+}
+
+.project-info h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: 'hungary';
+  color: var(--primary-heading-color);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+}
+
+.project-info p {
+  color: var(--text-color);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0 0 0.75rem 0;
+  font-family: 'acherus';
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tech-tag {
+  background: var(--background-secondary-color);
+  color: var(--text-color);
+  padding: 0.3rem 0.7rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-family: 'acherus';
+  border: 1px solid var(--border-divider-color);
+}
+
+.dark-mode .tech-tag {
+  background: var(--background-color);
+  border: 1px solid var(--border-divider-color);
+}
+
+/* Graphics Content */
+.graphics-description {
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  font-family: 'acherus';
+}
+
+.graphics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.graphic-item {
+  background: var(--background-color);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-divider-color);
+}
+
+.graphic-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.dark-mode .graphic-item {
+  background: var(--background-secondary-color);
+  border: 1px solid var(--border-divider-color);
+}
+
+.dark-mode .graphic-item:hover {
+  background: var(--background-color);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.graphic-item img {
+  width: 100%;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+}
+
+.graphic-fallback {
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  font-family: 'hungary';
+}
+
+.graphic-name {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  font-weight: 500;
+  font-family: 'acherus';
+}
+
+/* GitHub Content */
+.github-description {
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  font-family: 'acherus';
+}
+
+.github-component {
+  background: var(--background-color);
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid var(--border-divider-color);
+}
+
+.dark-mode .github-component {
+  background: var(--background-secondary-color);
+  border: 1px solid var(--border-divider-color);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .work-mobile-section {
+    padding: 1.5rem 0.75rem;
+  }
+  
+  .work-mobile-title {
+    font-size: 2.5rem;
+  }
+  
+  .work-mobile-subtitle {
+    font-size: 1rem;
+  }
+  
+  .card-header {
+    padding: 1.25rem;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+  }
+  
+  .card-icon {
+    font-size: 1.75rem;
+  }
+  
+  .graphics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .project-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .project-image {
+    margin-right: 0;
+    margin-bottom: 1rem;
+    align-self: center;
+  }
+}
+
+/* Animation Delays for Staggered Content */
+.card-content.visible .mobile-card-content > * {
+  animation: slideInUp 0.5s ease forwards;
+}
+
+.card-content.visible .mobile-card-content > *:nth-child(1) { animation-delay: 0.1s; }
+.card-content.visible .mobile-card-content > *:nth-child(2) { animation-delay: 0.2s; }
+.card-content.visible .mobile-card-content > *:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading States */
+.work-mobile-card.loading {
+  pointer-events: none;
+}
+
+.work-mobile-card.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+.dark-mode .work-mobile-card.loading::after {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+} 

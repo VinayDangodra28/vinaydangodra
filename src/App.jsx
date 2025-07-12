@@ -87,7 +87,7 @@ function App() {
           <AnimatePresence mode="wait">
             {isMobile ? <MobileApp /> : <DesktopApp />}
           </AnimatePresence>
-        )}
+        )}  
       </div>
     </ThemeProvider>
   );

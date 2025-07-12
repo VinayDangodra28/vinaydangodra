@@ -127,7 +127,7 @@ const CustomCursor = forwardRef((_, ref) => {
 
       if (isNearAttract && isOscillating) {
         oscillationFactor += 0.05;
-        let oscillationStrength = Math.sin(oscillationFactor * 5) * 5;
+        let oscillationStrength = Math.sin(oscillationFactor * 5) * 15;
         followerPos.x += attractDirection.x * oscillationStrength;
         followerPos.y += attractDirection.y * oscillationStrength;
       }

@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { ScrollTrigger } from 'gsap/all';
 import gsap from 'gsap';
 
-
-
 export const Education = () => {
   const [certificateDescription, setCertificateDescription] = useState(
     "lorem ipsum dolor sit amet consectetur adipiscing elit"
   );
   const [certificateImage, setCertificateImage] = useState("/images/certificates/IBM.png");
+  const [isMobile, setIsMobile] = useState(false);
+
   const certificatesData = [
     {
       id: "1",
@@ -27,8 +27,23 @@ export const Education = () => {
       link: "https://www.sololearn.com/en/certificates/CT-GEMXPIL1",
     }
   ];
+
+  // Check if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   
   useEffect(() => {
+    // Only apply GSAP animations on desktop
+    if (isMobile) return;
+
     gsap.registerPlugin(ScrollTrigger);
 
     const certificates = document.querySelectorAll(".certificate");
@@ -65,14 +80,13 @@ export const Education = () => {
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
-  }, []);
-
-
+  }, [isMobile]);
 
   useEffect(() => {
+    // Only apply GSAP animations on desktop
+    if (isMobile) return;
 
     gsap.registerPlugin(ScrollTrigger);
-
 
     gsap.to("#mca", {
       borderColor: "#007BFF",
@@ -102,7 +116,6 @@ export const Education = () => {
       },
     });
 
-
     gsap.to("#hsc", {
       borderColor: "#00C853",
       boxShadow: "0px 0px 20px 0px #00C853, 0px 0px 20px 0px #00C853 inset",
@@ -116,7 +129,6 @@ export const Education = () => {
         // markers: true,
       },
     });
-
 
     gsap.to("#ssc", {
       borderColor: "#FFC107",
@@ -132,13 +144,7 @@ export const Education = () => {
       },
     });
 
-
-
-
-
-
-
-  }, []);
+  }, [isMobile]);
 
   return (
     <div className="education-section-wrapper">
@@ -208,7 +214,7 @@ export const Education = () => {
                   <div className="certificates-description-content">
                     {/* {certificateDescription}
                      */}
-              {certificateImage && (
+              {certificateImage && !isMobile && (
                 <div className="certificate-image">
                   <img src={certificateImage} alt="Selected Certificate" />
                 </div>
@@ -222,6 +228,11 @@ export const Education = () => {
                     <div className="certificate-title">{certificate.title}</div>
                     <div className="certificate-school">{certificate.school}</div>
                     <div className="certificate-description">{certificate.description}</div>
+                    {isMobile && certificate.image && (
+                      <div className="certificate-image-mobile">
+                        <img src={certificate.image} alt={certificate.title} />
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
