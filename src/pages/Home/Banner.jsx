@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import Logo from '../../components/Logo';
 
-export const Banner = () => {
+export const   Banner = () => {
     const logo = useRef(null);
     const logobox = useRef(null);
     const heading = useRef(null);

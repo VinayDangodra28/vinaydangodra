@@ -173,7 +173,7 @@ span.svg-icon svg {
 }
 
 .homepage-wrapper {
-    background: var(--background-secondary-color);
+    background: transparent;
     animation: gradient 25s ease infinite;
     background-size: 200% 200%;
 }
@@ -222,6 +222,7 @@ span.svg-icon svg {
     flex-direction: column;
     justify-content: space-between;
     border-radius: 40px;
+    background-color: var(--background-secondary-color);
     box-shadow: 2px 0px 20px 2px #3c3c3c inset;
 }
 
@@ -265,6 +266,7 @@ span.svg-icon svg {
     position: relative;
     height: 100vh;
     width: 100%;
+    z-index: 99;
 }
 
 .banner {

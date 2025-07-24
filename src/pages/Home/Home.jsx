@@ -222,14 +222,7 @@ function Home() {
           <div className='bottom_transparent'></div>
           <div className="center-fixer-wrapper">
             <div className="center-fixer">
-              <div className='top-center-fixer'>
-                <div className='top-left-fixer'></div>
-                <div className='top-right-fixer'></div>
-              </div>
-              <div className='bottom-center-fixer'>
-                <div className='bottom-left-fixer'></div>
-                <div className='bottom-right-fixer'></div>
-              </div>
+              
             </div>
           </div>
         </div>

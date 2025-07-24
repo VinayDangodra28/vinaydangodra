@@ -133,7 +133,7 @@ const GithubProjects = () => {
                   <span className="project-language">
                     {repo.language || 'Code'}
                   </span>
-                  <span className="project-stars">⭐ {repo.stargazers_count}</span>
+                  {/* <span className="project-stars">⭐ {repo.stargazers_count}</span> */}
                 </div>
               </a>
             ))
