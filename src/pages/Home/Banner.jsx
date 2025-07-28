@@ -1,6 +1,11 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import Logo from '../../components/Logo';
+
+// Shadow settings
+const SHADOW_MULTIPLIER = 0.9; // relative factor for shadow offset
+const SHADOW_BLUR = 8; // shadow blur in pixels
+const SHADOW_COLOR = 'rgba(0,0,0,0.4)';
 
 export const   Banner = () => {
     const logo = useRef(null);
@@ -10,6 +15,7 @@ export const   Banner = () => {
     const blobs = useRef([]);
     const chars = useRef([]);
     const multiverseText = useRef(null);
+    const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
         // Initial state
@@ -58,8 +64,9 @@ export const   Banner = () => {
     function moveLogo(x, y) {
         gsap.to(logobox.current, {
             transform: `rotateX(${y}deg) rotateY(${x}deg)`,
+            filter: `drop-shadow(${-x * SHADOW_MULTIPLIER}px ${y * SHADOW_MULTIPLIER}px ${SHADOW_BLUR}px ${SHADOW_COLOR})`,
             ease: "power2.out",
-            duration: 2
+            duration: 0.5
         });
     }
 
@@ -76,6 +83,9 @@ export const   Banner = () => {
         // Limit xvalue to ±30
         xvalue = Math.max(-30, Math.min(60, xvalue));
 
+        // Update cursor position for gradient
+        setCursorPosition({ x: xvalue, y: yvalue });
+
         moveLogo(xvalue, yvalue);
     };
 
@@ -91,6 +101,9 @@ export const   Banner = () => {
         ));
     };
 
+    // Static shadow for text (matches logo, but does not move)
+    const TEXT_SHADOW = `drop-shadow(8px 8px 8px rgba(0,0,0,0.4))`;
+
     return (
         <div onMouseMove={MouseMoving} className='banner_wrapper'>
             <div className='banner' ref={logo}>
@@ -100,17 +113,17 @@ export const   Banner = () => {
                 <div className="blob blob-4" ref={el => blobs.current[3] = el}></div>
                 <div className="logo_wrapper">
                     <div className='logo' ref={logobox}>
-                        <Logo />
+                        <Logo cursorPosition={cursorPosition} />
                     </div>
                 </div>
 
                 <div className='banner_heading'>
-                    <h1 ref={heading}>
+                    <h1 ref={heading} style={{ filter: TEXT_SHADOW }}>
                         <span className="first_name">{splitText("Vinay")}</span>{" "}<br />
                         <span className="last_name">{splitText("Dangodra")}</span>
                     </h1>
                     <span ref={subheading}>
-                        <span ref={multiverseText}>-Frontend, Backend and Beyond.</span>
+                        <span ref={multiverseText} style={{ filter: TEXT_SHADOW }}>-Frontend, Backend and Beyond.</span>
                     </span>
                 </div>
             </div>

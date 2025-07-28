@@ -218,8 +218,6 @@ function Home() {
     <div className={`homepage ${isMobile ? 'no-gsap' : ''}`}>
       <div className="homepage-wrapper">
         <div className="top_fixer">
-          <div className='top_black'></div>
-          <div className='bottom_transparent'></div>
           <div className="center-fixer-wrapper">
             <div className="center-fixer">
               
@@ -238,7 +236,7 @@ function Home() {
             <Contact />
           </div>
         </div>
-        <div style={{ position: 'relative' }}>
+        <div style={{ position: 'relative' , zIndex: 3 }}>
           <MazeGame />
           <Popup selectedWork={selectedWork} onClose={handlePopupClose} />
         </div>
