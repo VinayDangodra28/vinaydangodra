@@ -1,8 +1,0 @@
-<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <rect width="100" height="100" fill="#008080" rx="12"/>
-  <text x="50" y="35" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">CREATIVE</text>
-  <text x="50" y="55" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">WINDOWS</text>
-  <rect x="20" y="65" width="60" height="2" fill="white" rx="1"/>
-  <rect x="20" y="70" width="40" height="2" fill="white" rx="1"/>
-  <rect x="20" y="75" width="50" height="2" fill="white" rx="1"/>
-</svg> 

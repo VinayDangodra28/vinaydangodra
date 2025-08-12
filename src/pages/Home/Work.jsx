@@ -47,7 +47,7 @@ const workSections = [
         </div>
 
         <div className="work-cta">
-          <a href="https://creoelements.com" target="_blank" rel="noopener noreferrer" className="work-cta-button">
+          <a href="https://creo-elements.com" target="_blank" rel="noopener noreferrer" className="work-cta-button">
             <span>Visit Company</span>
             <span className="cta-arrow">→</span>
           </a>
@@ -93,6 +93,27 @@ const workSections = [
               </div>
             </a>
 
+            <a href="https://github.com/VinayDangodra28/ViFinance" target="_blank" className="project-item" rel="noopener noreferrer">
+              <div className="project-header">
+                <div className="project-title">
+                  <img src="/logos/ViFinance.png" alt="FlowTile" className="project-logo" />
+                  <h3 className="project-name">ViFinance</h3>
+                </div>
+                <span className="project-status">Live</span>
+              </div>
+              <p className="project-description">
+                A React + Cordova based Android app with AI ChatBot for managing finance reports
+              </p>
+              <div className="project-tech">
+                <span className="tech-tag">React</span>
+                <span className="tech-tag">Redux</span>
+                <span className="tech-tag">AI ChatBot</span>
+                <span className="tech-tag">Cordova</span>
+                <span className="tech-tag">Android</span>
+              </div>
+            </a>
+
+
             <a href="https://petal-honeysuckle-quince.glitch.me/" target="_blank" className="project-item" rel="noopener noreferrer">
               <div className="project-header">
                 <div className="project-title">
@@ -113,7 +134,7 @@ const workSections = [
         </div>
 
         <div className="work-cta">
-          <a href="#projects" className="work-cta-button">
+          <a href="https://github.com/VinayDangodra28?tab=repositories" className="work-cta-button">
             <span>View All Projects</span>
             <span className="cta-arrow">→</span>
           </a>
@@ -142,13 +163,13 @@ const workSections = [
         <div className="work-content-main">
           <div className="graphics-grid">
             <div className="graphic-item">
-              <img src="/logos/creative-windows.png" alt="Creative Windows" className="graphic-image" />
+              <img src="/logos/creative_windows_logo.png" alt="Creative Windows" className="graphic-image" />
               <div className="graphic-overlay">
                 <span className="graphic-name">Creative Windows</span>
               </div>
             </div>
             <div className="graphic-item">
-              <img src="/logos/creotap.png" alt="CreoTAP" className="graphic-image" />
+              <img src="/logos/creotap_logo.png" alt="CreoTAP" className="graphic-image" />
               <div className="graphic-overlay">
                 <span className="graphic-name">CreoTAP</span>
               </div>
@@ -160,13 +181,7 @@ const workSections = [
               </div>
             </div>
             <div className="graphic-item">
-              <img src="/logos/bakedwithlove.png" alt="bakedwithlove" className="graphic-image" />
-              <div className="graphic-overlay">
-                <span className="graphic-name">Baked with Love</span>
-              </div>
-            </div>
-            <div className="graphic-item">
-              <img src="/logos/dvinay.png" alt="dvinay" className="graphic-image" />
+              <img src="/images/dvinaynewlogowhite.svg" alt="dvinay" className="graphic-image" />
               <div className="graphic-overlay">
                 <span className="graphic-name">Dvinay</span>
               </div>

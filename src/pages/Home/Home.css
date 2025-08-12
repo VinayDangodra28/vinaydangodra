@@ -801,6 +801,7 @@ p.company.logos {
     align-items: center;
     justify-content: center;
     background-color: var(--background-secondary-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .work-section-wrapper {
@@ -839,9 +840,6 @@ p.company.logos {
 
 #web-work {
     border-right: 0px;
-}
-
-#projects-work {
 }
 
 #sketch-work {

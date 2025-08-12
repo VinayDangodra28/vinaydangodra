@@ -54,7 +54,7 @@ const mobileWorkSections = [
     content: {
       description: 'Professional graphic design work including logos, branding, and visual assets.',
       projects: [
-        { name: 'Creative Windows', image: '/logos/creative-windows.svg' },
+        { name: 'Creative Windows', image: '/logos/creative_windows_logo.png' },
         { name: 'CreoTAP', image: '/logos/creotap.svg' },
         { name: 'FlowTile', image: '/logos/flowtile.png' },
         { name: 'Baked with Love', image: '/logos/bakedwithlove.svg' },
