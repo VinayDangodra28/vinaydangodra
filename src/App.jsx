@@ -78,6 +78,32 @@ function App() {
     };
   }, []);
 
+  // Prevent page scrolling via arrow keys, but allow arrow keys when
+  // the user is focused on an editable element (input, textarea, or contentEditable).
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      try {
+        const target = e.target;
+        const tag = target && target.tagName;
+        const isEditable =
+          (tag === 'INPUT') ||
+          (tag === 'TEXTAREA') ||
+          (target && target.isContentEditable);
+
+        if (isEditable) return; // allow normal behavior inside editable elements
+
+        if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+          e.preventDefault();
+        }
+      } catch (err) {
+        // defensive: if anything unexpected happens, don't break the app
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown, { passive: false });
+    return () => window.removeEventListener('keydown', handleKeyDown, { passive: false });
+  }, []);
+
   return (
     <ThemeProvider>
       <div className="App">
